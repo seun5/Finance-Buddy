@@ -43,6 +43,7 @@ The JSON API is accessible through the link on the top right of the naviation. Y
 	
 #### API Usage
 GET /spending/
+
 | Name     | Data Type | Description        |
 |----------|-----------|--------------------|
 | name     | string    | Name of Spending   |

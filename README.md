@@ -43,12 +43,12 @@ The JSON API is accessible through the link on the top right of the naviation. Y
 	
 #### API Usage
 GET /spending/
-| Name        | Data Type           | Description  |
-| ------------- |:-------------:| -----:|
-| name      | string | Name of  Spending |
-| id      | int      | ID(Primary Key)   |
-| merchant | string      | Vendor    |
-| price | string      | Amount of Spending    |
+| Name     | Data Type | Description        |
+|----------|-----------|--------------------|
+| name     | string    | Name of Spending   |
+| id       | int       | ID (Primary Key)   |
+| merchant | string    | Vendor             |
+| price    | string    | Amount of Spending |
 
 
 ## Future Updates 

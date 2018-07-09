@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container-fluid">
+	<h2> Are you sure you want to delete {{spending.name}}? </h2>
+
+	<form action="#" method = 'post'>
+		<br>
+		<button type="submit" class="btn btn-default btn-yes" id="submit" type="submit">
+			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+		</button>
+		<a href = '{{url_for('showSpendings')}}' class="btn btn-default delete btn-no">
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+		</a>
+
+	</form>
+</div>
+{% endblock %}

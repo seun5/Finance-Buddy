@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en" class="front-page">
+
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+      <title>Finance Buddy</title>
+  </head> 
+  <body class="front-page">
+      <div class= "home">
+        <div class="landing-text">
+          <h1 class = "front-page-h1">Finance Buddy</h1>
+          <h3 class = "front-page-h3">Keep track of your spending habits</h3>
+          <br>
+              {%if 'username' not in session %}
+                <a href="{{url_for('showLogin')}}" class="btn btn-home btn-lg">
+                  Click Here to Login 
+                </a>
+              {% else %}
+                  <a href="{{url_for('showSpendings')}}" class="btn btn-home btn-default btn-lg">
+                    Enter as {{session.email}} 
+                  </a>
+                  <a href="{{url_for('disconnect')}}" class="btn btn-home btn-default btn-lg">Logout 
+                  </a>
+
+
+              {% endif %}
+        </div>
+      </div>
+
+  </body>
+
+</html>

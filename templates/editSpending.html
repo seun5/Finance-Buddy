@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container-fluid">
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Spending</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="{{ url_for('editSpending',spending_id = spending.id)}}" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{spending.name}}"required >
+
+					<label for="description">Merchant:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="merchant">{{spending.merchant}}</textarea>
+
+					<label for="price">Price:</label>
+
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type ="number" maxlength="10" class="form-control" name="price" value="{{spending.price}}" required>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-default btn-yes" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save</button>
+					<a href = '{{url_for('showSpendings')}}' class="btn btn-default btn-no delete">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

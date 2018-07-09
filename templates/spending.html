@@ -1,0 +1,73 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="container-fluid">
+	<div class="row banner main">
+		<div class="col-md-12 padding-none">
+			<h1> {{session.username}}'s Expenses</h1>
+			<figure class="creator">
+				<img src="{{ url_for('static', filename='blank_user.gif') }}">
+			</figure>
+			<br>
+		</div>
+	</div>
+
+	<div class = 'flash'>
+			      {% with messages = get_flashed_messages() %}
+	      {% if messages %}
+	          
+	        <ul>
+	        {% for message in messages %}
+	            <li> <strong> {{ message }} </strong> </li>
+	        {% endfor %}
+	        </ul>
+	        {% endif %}
+	    {% endwith %}
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 padding-none">
+			<table class="table table-hover table-bordered table-striped">
+			    <thead>
+			        <tr>
+			            <th>Expenditure</th>
+			            <th>Merchant</th>
+			            <th>Price </th>
+			            <th></th>
+			        </tr>
+			    </thead>
+			    <tbody >
+			        {% for spending in spendings %}
+			        <tr class="table-row" data-href="{{url_for('readSpending', spending_id = spending.id)}}">
+			            <td>{{ spending.name }}</td>
+			            <td>{{ spending.merchant }}</td>
+			            <td>$ {{ spending.price }}</td>
+			            <td>
+			            	<a href="{{url_for('editSpending', spending_id = spending.id)}}">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true" ></span>
+							</a>	
+			            	<a href="{{url_for('deleteSpending', spending_id = spending.id)}}">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							</a>	
+			        	</td>
+			        </tr>
+			        {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- This will be used to make the rows clickable -->
+<script type="text/javascript">
+	$(document).ready(function($) {
+	    $(".table-row").click(function() {
+	        window.document.location = $(this).data("href");
+	    });
+	});
+</script>
+
+
+{% endblock %}

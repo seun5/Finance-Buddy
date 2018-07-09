@@ -1,0 +1,31 @@
+<!--   <div class="row top-menu">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 text-right"></div>
+  </div> -->
+
+<nav class= "navbar navbar-colors">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle navbar-second" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar navbar-second"></span>
+          <span class="icon-bar navbar-second"></span>
+          <span class="icon-bar navbar-second"></span> 
+      </button>
+      <a href="{{url_for('showSpendings')}}" class="navbar-brand">Finance Buddy</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('spendingJSON')}}">JSON</a></li>
+        <li><a href="{{url_for('newSpending')}}"><span class="glyphicon glyph-head glyphicon-usd"></span> Add Spending</a></li>
+        <li><a href="{{url_for('disconnect')}}"><span class="glyphicon glyph-head glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div> 
+  </div>
+</nav>
+
+
+
+
+
+
+
